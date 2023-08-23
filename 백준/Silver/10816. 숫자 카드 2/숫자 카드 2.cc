@@ -1,4 +1,4 @@
-//숫자 카드2
+//숫자 카드2(어퍼바운드,로워바운드 활용)
 #include <iostream>
 #include <vector>
 #include <algorithm> // sort사용
