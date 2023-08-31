@@ -22,10 +22,8 @@ int main()
         num.push_back(temp);
     }
 
-    temp = 0;
     for(int i=1; i<=N; i++){
-        temp += num[i];
-        sum.push_back(temp);
+        sum.push_back(sum[i-1]+num[i]);
     }
 
     for(int x=0; x<M; x++){
