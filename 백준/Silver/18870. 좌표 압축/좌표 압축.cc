@@ -16,6 +16,7 @@ int main()
 		v1.push_back(temp);
 		v2.push_back(temp);
 	}
+
 	sort(v2.begin(), v2.end());
 	v2.erase(unique(v2.begin(), v2.end()), v2.end());
 
