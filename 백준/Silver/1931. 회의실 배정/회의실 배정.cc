@@ -1,16 +1,13 @@
 #include <iostream>
-#include <tuple>
-#include <vector>
 #include <algorithm>
 using namespace std;
-
 
 int main()
 {
     int N, start, end;
     pair<int, int> time[100000];
-    vector<pair<int, int>> fix;
-    bool check = true;
+    int count = 1;
+    int last_end;
 
     cin >> N;
     for (int i = 0; i < N; i++) {
@@ -21,21 +18,13 @@ int main()
 
     sort(time, time + N);
 
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < fix.size(); j++) {
-            if (time[i].second < fix[j].first) {
-                check = false;
-                break;
-            }
-        }
-        if (check == false) {
-            check = true;
-            continue;
-        }
-        else {
-            fix.push_back(make_pair(time[i].first, time[i].second));
+    last_end = time[0].first;
+    for (int i = 1; i < N; i++) {
+        if (time[i].second >= last_end) {
+            count++;
+            last_end = time[i].first;
         }
     }
 
-    cout << fix.size();
+    cout << count;
 }
