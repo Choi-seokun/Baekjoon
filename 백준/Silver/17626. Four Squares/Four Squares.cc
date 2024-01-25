@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <cmath>
 using namespace std;
 
@@ -13,7 +12,7 @@ int main()
 	dp[0] = 0;
 	for (int i = 1; i <= n; i++) {
 		for (int j = floor(sqrt(i)); j > 0; j--) {
-			temp = 1 + dp[i-int(pow(j,2))];
+			temp = 1 + dp[i - int(pow(j, 2))];
 			if (min > temp) {
 				min = temp;
 			}
