@@ -3,7 +3,6 @@
 #include <vector>
 using namespace std;
 
-bool check = true;
 vector<int> arr;
 int result[8];
 int N, M;
