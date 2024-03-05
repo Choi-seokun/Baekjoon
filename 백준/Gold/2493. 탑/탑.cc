@@ -31,8 +31,6 @@ int main()
 		}
 		top.push_back(make_pair(temp, i + 1));
 	}
-	
-
 
 	for (int i = 0; i < N; i++) {
 		cout << result[i] << " ";
