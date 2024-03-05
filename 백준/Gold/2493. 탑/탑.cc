@@ -2,10 +2,11 @@
 #include <vector>
 using namespace std;
 
+int result[500000];
+
 int main()
 {
 	vector<pair<int, int>> top;
-	vector<int> result;
 	int N, temp;
 	bool check = false;
 
@@ -19,12 +20,12 @@ int main()
 			}
 			else {
 				check = true;
-				result.push_back(top.back().second);
+				result[i] = top.back().second;
 				break;
 			}
 		}
 		if (check == false) {
-			result.push_back(0);
+			result[i] = 0;
 		}
 		else {
 			check = false;
