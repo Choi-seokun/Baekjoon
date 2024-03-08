@@ -3,12 +3,11 @@
 #include <string>
 using namespace std;
 
-queue<pair<int, int>> bfs;
-bool arr[101][101];
-int depth[101][101];
-
 int main()
 {
+	queue<pair<int, int>> bfs;
+	bool arr[101][101];
+	int depth[101][101];
 	string temp;
 	int N, M;
 	int x, y;
