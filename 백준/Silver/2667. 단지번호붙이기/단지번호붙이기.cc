@@ -17,7 +17,6 @@ int main()
 	int count = 0;
 	vector<int> result;
 	
-	
 	cin >> N;
 	for (int i = 0; i < N; i++) {
 		cin >> temp;
