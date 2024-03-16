@@ -33,12 +33,14 @@ int main()
 
     for (int i = 0; i < M; i++) {
         cin >> x1 >> y1 >> x2 >> y2;
+
         if (y1 - 1 > 0) {
             sum = sumdp[x2][y2] - sumdp[x1][y1 - 1];
         }
         else {
             sum = sumdp[x2][y2] - sumdp[x1-1][N];
         }
+
         if (x1 != x2) {
             for (int j = 1; j < y1; j++) {
                 sum -= (columndp[j][x2] - columndp[j][x1]);
@@ -47,20 +49,7 @@ int main()
                 sum -= (columndp[k][x2 - 1] - columndp[k][x1 - 1]);
             }
         }
-        /*
-        for (int j = 1; j <= x2; j++) {
-            sum += rowdp[j][y2];
-        }
-        for (int k = 1; k < x1; k++) {
-            sum -= rowdp[k][y2];
-        }
-        for (int h = 1; h < y1; h++) {
-            sum -= columndp[h][x2];
-        }
-        for (int g = 1; g < x1; g++) {
-            sum += rowdp[g][y1 - 1];
-        }
-        */
+
         result.push_back(sum);
         sum = 0;
     }
