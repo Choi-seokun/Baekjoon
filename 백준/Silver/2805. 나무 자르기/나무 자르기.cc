@@ -1,41 +1,47 @@
 #include <iostream>
+
 using namespace std;
 
 int tree[1000000];
-
-int main() {
+int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    int N, M;
+    
+    int N, M, Max=0;
     cin >> N >> M;
 
-    int Max = 0;
-    for (int i = 0; i < N; i++) {
+    for(int i=0; i<N; i++){
         cin >> tree[i];
-        if (Max < tree[i]) Max = tree[i];
-    }
-
-    int start = 0, end = Max;
-    int result = 0;
-
-    while (start <= end) {
-        long long sum = 0;          // ✅ long long
-        int mid = (start + end) / 2; // ✅ while 내부에서 mid 계산
-
-        for (int i = 0; i < N; i++) {
-            if (tree[i] > mid)
-                sum += (tree[i] - mid);
-        }
-
-        if (sum >= M) {
-            result = mid;
-            start = mid + 1;  // ✅ 높이 더 높여보기
-        } else {
-            end = mid - 1;    // ✅ 낮춰서 다시 탐색
+        if(Max < tree[i]){
+            Max = tree[i];
         }
     }
 
-    cout << result;
+    int mid = Max/2;
+    int start = 0;
+    int end = Max;
+    long sum=0;
+    int MaxH=0;
+    bool check = true;
+    while(start <= end){
+        mid = (start + end)/2;
+        if(start == end){
+            check = false;
+        }
+        for(int j=0; j<N; j++){
+            if(tree[j]-mid>0){
+                sum+=tree[j]-mid;
+            }
+        }
+        if(sum>=M){
+            MaxH = mid;
+            start = mid+1;
+        }else if(sum<M){
+            end = mid-1;
+        }
+        sum = 0;
+    }
+    cout << MaxH;
+    
     return 0;
 }
