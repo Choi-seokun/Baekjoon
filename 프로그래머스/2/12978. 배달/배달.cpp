@@ -7,7 +7,7 @@ using namespace std;
 int solution(int N, vector<vector<int> > road, int K) {
     vector<pair<int, int>> adj[51];
     
-    for(auto& r : road){
+    for(auto r : road){
         adj[r[0]].push_back({r[1], r[2]});
         adj[r[1]].push_back({r[0], r[2]});
     }
@@ -27,7 +27,7 @@ int solution(int N, vector<vector<int> > road, int K) {
             continue;
         }
         
-        for(auto& edge : adj[curr]){
+        for(auto edge : adj[curr]){
             int next = edge.first;
             int cost = edge.second;
             if(dist[next] > d + cost){
